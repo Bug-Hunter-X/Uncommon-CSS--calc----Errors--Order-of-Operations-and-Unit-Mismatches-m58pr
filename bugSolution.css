@@ -1,0 +1,21 @@
+To avoid issues with CSS `calc()`, ensure you:
+
+1. **Follow Order of Operations:**  Use parentheses to control the order of operations, explicitly separating parts of the calculation.
+2. **Match Units Consistently:** Ensure that units are consistent within the calculation (pixels with pixels, percentages with percentages).  Avoid mixing different units unless you're certain of the parent container's dimensions.
+3. **Verify Parent Dimensions:** If the calculation depends on the parent container's size, make sure the parent has properly defined dimensions (using `width`, `height`, or other relevant properties). Consider using `min-width` and `max-width` to manage responsiveness where needed.
+
+Here's a corrected version of the buggy code:
+
+```css
+/* bugSolution.css */
+.container {
+  width: 500px;
+  /* Explicitly define the parent's width */
+}
+
+.element {
+  width: calc((100% - 20px) / 2);
+  /* Use parentheses to ensure correct order */
+  box-sizing: border-box; 
+}
+```
